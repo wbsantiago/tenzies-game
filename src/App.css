@@ -1,6 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --text-blue: #2B283A;
+  --btn-color: #5035FF;
+  --text-lightblue: #4A4E74;
 }
 
 .App {
@@ -10,5 +17,37 @@
   border-radius: 10px;
   margin: 50px auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.tenzie-title, .tenzie-explanation {
+  text-align: center;
+}
+
+.tenzie-title {
+  color: var(--text-blue);
+  margin-top: 33.28px;
+  font-size: 25.6px;
+  font-family: 'Karla', sans-serif;
+}
+
+.tenzie-explanation {
+  font-size: 13.11px;
+  line-height: 100%;
+  letter-spacing: -3%;
+  width: 233px;
+  margin: 7.68px auto 0 auto;
+  color: var(--text-lightblue);
+}
+
+.tenzie-btn {
+  width: 92.16px;
+  height: 35.84px;
+  background-color: var(--btn-color);
+  color: white;
+  border: 0;
+  border-radius: 3.81px;
+  margin: 0 auto;
+  font-weight: 700;
+  font-family: 'Karla', sans-serif;
 }
