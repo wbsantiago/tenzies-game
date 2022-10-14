@@ -1,6 +1,7 @@
 import './App.css'
 import Die from './components/Die'
 import React from 'react'
+import { nanoid } from 'nanoid'
 
 function App() {
 const [dice, setDice] = React.useState(allNewDice())
@@ -14,7 +15,8 @@ function allNewDice() {
   for(let i = 0; i < 10 ; i++) {
     const newDie = {
       value: randomDieValue(),
-      id: i + 1
+      isHeld: false,
+      id: nanoid()
     }
     newArray.push(newDie)
   }
