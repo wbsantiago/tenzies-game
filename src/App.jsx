@@ -1,9 +1,9 @@
 import './App.css'
-import Die from './components/Die.jsx'
-
+import Die from './components/Die'
+import React from 'react'
 
 function App() {
-
+const [dice, setDice] = React.useState(allNewDice())
 
 function randomDieValue() {
   return Math.ceil(Math.random() * 6)
@@ -21,15 +21,20 @@ function allNewDice() {
   return newArray
 }
 
-console.log(allNewDice())
+function ollUnheldDice() {
+  setDice(allNewDice())
+}
+
+const diceElements = dice.map(die => <Die key={die.id} {...die} />)
 
   return (
     <main className="App">
       <h1 className='tenzie-title'>Tenzies</h1>
       <p className='tenzie-explanation'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <div className='container'>
+        {diceElements}
       </div>
-      <button className='tenzie-btn'>Roll</button>
+      <button className='tenzie-btn' onClick={ollUnheldDice}>Roll</button>
     </main>
   )
 }
