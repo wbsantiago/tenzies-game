@@ -40,6 +40,15 @@
   color: var(--text-lightblue);
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 35.84px);
+  grid-template-rows: 2fr;
+  row-gap: 18.56px;
+  column-gap: 17.92px;
+  margin: 23.08px auto 25.6px auto;
+}
+
 .tenzie-btn {
   width: 92.16px;
   height: 35.84px;
