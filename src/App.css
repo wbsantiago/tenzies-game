@@ -8,6 +8,7 @@
   --text-blue: #2B283A;
   --btn-color: #5035FF;
   --text-lightblue: #4A4E74;
+  --btn-hover: #1035FF;
 }
 
 .App {
@@ -52,7 +53,6 @@
 .tenzie-btn {
   width: 92.16px;
   height: 35.84px;
-  background-color: var(--btn-color);
   color: white;
   border: 0;
   border-radius: 3.81px;
@@ -60,4 +60,10 @@
   font-weight: 700;
   font-family: 'Karla', sans-serif;
   cursor: pointer;
+  background-color: var(--btn-color);
+  transition: 200ms;
+}
+
+.tenzie-btn:hover {
+  background-color: var(--btn-hover);
 }
