@@ -5,9 +5,18 @@ import { nanoid } from 'nanoid'
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice())
+  const [tenzies, setTenzies] = React.useState()
 
   function randomDieValue() {
     return Math.ceil(Math.random() * 6)
+  }
+
+  function generateNewDie() {
+    return {
+      value: randomDieValue(),
+      isHeld: false,
+      id: nanoid()
+    }
   }
 
   function allNewDice() {
@@ -24,7 +33,11 @@ function App() {
   }
 
   function rollUnheldDice() {
-    setDice(allNewDice())
+    setDice(prevDice => prevDice.map(unheldDice => {
+      return unheldDice.isHeld ?
+        unheldDice :
+        generateNewDie()
+    }))
   }
 
   function holdDice(id) {
