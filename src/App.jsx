@@ -45,25 +45,25 @@ function App() {
   }
 
   function rollUnheldDice() {
-    setDice(prevDice => prevDice.map(unheldDice => {
-      return unheldDice.isHeld ?
-        unheldDice :
-        generateNewDie()
-    }))
+    if (!tenzies) {
+      setDice(prevDice => prevDice.map(unheldDice => {
+        return unheldDice.isHeld ?
+          unheldDice :
+          generateNewDie()
+      }))
+    } else {
+      setDice(allNewDice())
+      setTenzies(false)
+    }
   }
 
   function holdDice(id) {
-    if (tenzies) {
-      allNewDice()
-      tenzies === false
-    } else {
-      setDice(prevDice => prevDice.map(die => {
-        return  die.id === id ?
-          {...die, isHeld: !die.isHeld} :
-          die
-      }))
-    }
-  }
+    setDice(prevDice => prevDice.map(die => {
+        return die.id === id ? 
+            {...die, held: !die.held} : 
+            die
+    }))
+}
 
   const diceElements = dice.map(die => <Die key={die.id} {...die} held={die.isHeld} holdDice={() => holdDice(die.id)} />)
 
