@@ -10,9 +10,11 @@
   --text-lightblue: #4A4E74;
   --btn-hover: #1035FF;
   --bg-dicehold: #59E391;
+  --bg-darktheme: #111111;
 }
 
-.App {
+
+main  {
   width: 320px;
   height: 320px;
   background-color: #F5F5F5;
@@ -22,24 +24,34 @@
   flex-direction: column;
 }
 
-.tenzie-title, .tenzie-explanation {
-  text-align: center;
+main.dark {
+  background-color: var(--bg-darktheme);
 }
 
-.tenzie-title {
+h1 {
   color: var(--text-blue);
   margin-top: 33.28px;
   font-size: 25.6px;
   font-family: 'Karla', sans-serif;
+  text-align: center;
 }
 
-.tenzie-explanation {
+h1.dark {
+  color: #CCCCCC;
+}
+
+p {
   font-size: 13.11px;
   line-height: 100%;
   letter-spacing: -3%;
   width: 233px;
   margin: 7.68px auto 0 auto;
   color: var(--text-lightblue);
+  text-align: center;
+}
+
+p.dark {
+  color: #CCCCCC;
 }
 
 .container {

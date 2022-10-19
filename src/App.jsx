@@ -4,11 +4,13 @@ import React from 'react'
 import { nanoid } from 'nanoid'
 import { useEffect } from 'react'
 import Confetti from 'react-confetti'
-
+import Toggle from './components/Toggle.jsx'
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice())
   const [tenzies, setTenzies] = React.useState(false)
+  const [darkMode, setDarkMode] = React.useState(false)
+
 
   useEffect(() => {
     const allHeld = dice.every(die => die.isHeld)
@@ -65,23 +67,33 @@ function App() {
     }))
 }
 
-  const diceElements = dice.map(die => <Die key={die.id} {...die} held={die.isHeld} holdDice={() => holdDice(die.id)} />)
+function toggleDarkMode() {
+  setDarkMode(prevMode => !prevMode)
+}
+
+  const diceElements = dice.map(die => <Die key={die.id} {...die} held={die.isHeld} holdDice={() => holdDice(die.id)} darkMode={darkMode} />)
 
   return (
-    <main className="App">
-      { tenzies && <Confetti />}
-      <h1 className='tenzie-title'>Tenzies</h1>
-      <p className='tenzie-explanation'>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-      <div className='container'>
-        {diceElements}
-      </div>
-      <button 
-        className='tenzie-btn' 
-        onClick={rollUnheldDice}
-      >
-        { tenzies ? "New Game" : "Roll"}
-      </button>
-    </main>
+    <div>
+      <Toggle 
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
+      <main className={ darkMode ? "dark" : ""}>
+        { tenzies && <Confetti />}
+        <h1 className={ darkMode ? "dark" : ""}>Tenzies</h1>
+        <p className={ darkMode ? "dark" : ""}>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className='container'>
+          {diceElements}
+        </div>
+        <button
+          className='tenzie-btn'
+          onClick={rollUnheldDice}
+        >
+          { tenzies ? "New Game" : "Roll"}
+        </button>
+      </main>
+    </div>
   )
 }
 

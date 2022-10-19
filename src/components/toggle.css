@@ -1,0 +1,31 @@
+#toggle {
+    position: relative;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 60px;
+    height: 30px;
+    background-color: #ffffff;
+    transition: 0.5s;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #666, #aaa);
+    transform: scale(0.9);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.5),
+                inset 0 8px 30px rgba(0,0,0,0.1),
+                inset 0 8px 8px rgba(0,0,0,0.1),
+                inset 0 -4px 4px rgba(0,0,0,0.1);
+    transition: 0.5s;
+}
+
+i.dark {
+    left: 30px;
+}
